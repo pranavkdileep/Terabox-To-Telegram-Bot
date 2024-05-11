@@ -9,6 +9,7 @@ dotenv.load_dotenv()
 
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 bot = telebot.TeleBot(BOT_TOKEN)
+bot.set_webhook()
 
 @bot.message_handler(commands=['start'])
 def start(message):
