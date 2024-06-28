@@ -1,0 +1,24 @@
+{
+  "name": "terabox-to-telegram-bot",
+  "version": "1.0.0",
+  "description": "An Simple Telegram Bot That Recives Terabox Link And Send The File Direclty To Telegram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pranavkdileep/Terabox-To-Telegram-Bot.git"
+  },
+  "author": "pranavkdileep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pranavkdileep/Terabox-To-Telegram-Bot/issues"
+  },
+  "homepage": "https://github.com/pranavkdileep/Terabox-To-Telegram-Bot#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodejs-file-downloader": "^4.13.0",
+    "telegraf": "^4.16.3"
+  }
+}

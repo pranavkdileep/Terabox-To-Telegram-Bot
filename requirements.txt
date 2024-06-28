@@ -1,3 +1,0 @@
-pyTelegramBotAPI
-requests
-python-dotenv
