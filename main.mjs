@@ -9,6 +9,13 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
+app.get("/dl", (req, res) => {
+    const path = req.query.name;
+    res.download("./Files/"+path);
+});
+
+const publicURL = "https://terabox-to-telegram-bot.herokuapp.com/dl?name=";
+
 const BotToken = "6660892564:AAHk03a2AnZpszg-wRBYJ8iSeJd7mtz61-c";
 const ChatID = "1196575861";
 const bot = new Telegraf(BotToken);
@@ -27,7 +34,9 @@ const DownloadFile = async (filelink,msg) => {
         if(filedata.downloadStatus === 'COMPLETE'){
             const filesize_inmb = fs.statSync(filedata.filePath).size / 1000000;
             if(filesize_inmb > 49){
-                msg.reply("File size is too large to send via Telegram! Download link: " + filelink);
+                const name = filedata.filePath.split("/")[2];
+                const link = publicURL + name;
+                msg.reply("File size is more than 50MB. So, here is the download link: " + link);
             }else{
                 const file = fs.readFileSync(filedata.filePath);
                 const filename = filedata.filePath.split("/")[2];
