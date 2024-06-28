@@ -14,7 +14,7 @@ app.get("/dl", (req, res) => {
     res.download("./Files/"+path);
 });
 
-const publicURL = "https://terabox-to-telegram-bot.herokuapp.com/dl?name=";
+const publicURL = "https://terabox-to-telegram-bot.onrender.com/dl?name=";
 
 const BotToken = "6660892564:AAHk03a2AnZpszg-wRBYJ8iSeJd7mtz61-c";
 const ChatID = "1196575861";
@@ -44,10 +44,11 @@ const DownloadFile = async (filelink,msg) => {
                 //console.log(filetype);
                 if(filetype === "mp4"){
                     msg.replyWithVideo({source: file, filename: filename});
+                    fs.unlinkSync(filedata.filePath);
                 }else{
                     msg.replyWithDocument({source: file, filename: filename});
                 }
-                fs.unlinkSync(filedata.filePath);
+                
             }
         }
     }catch(e){
